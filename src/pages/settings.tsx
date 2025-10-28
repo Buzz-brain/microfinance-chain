@@ -2,12 +2,9 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { 
   User, 
-  Mail, 
   Wallet, 
-  Shield, 
   Bell, 
   CreditCard,
-  Smartphone,
   Globe,
   Lock,
   Save,

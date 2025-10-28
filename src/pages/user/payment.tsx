@@ -7,8 +7,6 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { useNavigate } from 'react-router-dom';
-import { useAuth } from '@/contexts/auth-context';
-
 export default function MakePayment() {
   // auth not needed here currently
   const [formData, setFormData] = useState({
@@ -22,7 +20,7 @@ export default function MakePayment() {
 
   const walletBalance = 1250.00;
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
     

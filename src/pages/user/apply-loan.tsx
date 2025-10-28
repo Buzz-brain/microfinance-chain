@@ -1,17 +1,17 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { FileText, DollarSign, Calendar, User, ArrowRight, CheckCircle } from 'lucide-react';
+import { FileText, DollarSign, User, ArrowRight, CheckCircle } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { useAuth } from '@/contexts/auth-context';
+// auth not required here currently
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { useNavigate } from 'react-router-dom';
 
 export default function ApplyLoan() {
-  const { user } = useAuth();
+  // no auth usage in this component
   const [formData, setFormData] = useState({
     amount: '',
     purpose: '',

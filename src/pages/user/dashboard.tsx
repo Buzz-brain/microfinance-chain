@@ -1,4 +1,4 @@
-import React from 'react';
+// using automatic JSX runtime; remove unused React default import
 import { motion } from 'framer-motion';
 import { 
   Wallet, 
@@ -12,8 +12,7 @@ import {
   ArrowUpRight,
   ArrowDownRight,
   Clock,
-  CheckCircle,
-  AlertCircle
+  CheckCircle
 } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';

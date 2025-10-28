@@ -1,15 +1,15 @@
-import React from 'react';
+// using automatic JSX runtime; no default React import required
 import { motion } from 'framer-motion';
-import { CreditCard, Calendar, DollarSign, TrendingUp, Clock, CheckCircle, AlertCircle } from 'lucide-react';
+import { CreditCard, DollarSign, TrendingUp, Clock, CheckCircle, AlertCircle, ArrowRight } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
 import { Link } from 'react-router-dom';
-import { useAuth } from '@/contexts/auth-context';
+// auth not required here; removed unused useAuth
 
 export default function MyLoans() {
-  const { user } = useAuth();
+  // no auth usage in this component
   const loans = [
     {
       id: 1,

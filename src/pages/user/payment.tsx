@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import { useState, FormEvent } from 'react';
 import { motion } from 'framer-motion';
-import { Send, User, DollarSign, ArrowRight, CheckCircle, Wallet } from 'lucide-react';
+import { Send, ArrowRight, CheckCircle, Wallet } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -10,7 +10,7 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '@/contexts/auth-context';
 
 export default function MakePayment() {
-  const { user } = useAuth();
+  // auth not needed here currently
   const [formData, setFormData] = useState({
     recipient: '',
     amount: '',

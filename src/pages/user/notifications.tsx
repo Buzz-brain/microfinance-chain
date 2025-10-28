@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { 
   Bell, 
@@ -7,7 +7,6 @@ import {
   Info, 
   Clock,
   DollarSign,
-  CreditCard,
   TrendingUp,
   X,
   Settings,

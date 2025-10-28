@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import { useState, FormEvent } from 'react';
 import { motion } from 'framer-motion';
-import { DollarSign, CreditCard, Calendar, CheckCircle, ArrowRight } from 'lucide-react';
+import { DollarSign, CreditCard, CheckCircle, ArrowRight } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -11,7 +11,7 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '@/contexts/auth-context';
 
 export default function MakeRepayment() {
-  const { user } = useAuth();
+  // no direct auth usage here at present
   const [selectedLoan, setSelectedLoan] = useState('');
   const [paymentAmount, setPaymentAmount] = useState('');
   const [paymentMethod, setPaymentMethod] = useState('');
@@ -26,6 +26,7 @@ export default function MakeRepayment() {
       purpose: 'Small Business',
       monthlyPayment: 88,
       remainingAmount: 560,
+      paidAmount: 440,
       nextPaymentDate: '2024-02-15',
       status: 'current'
     },
@@ -35,6 +36,7 @@ export default function MakeRepayment() {
       purpose: 'Education',
       monthlyPayment: 87,
       remainingAmount: 326,
+      paidAmount: 174,
       nextPaymentDate: '2024-02-10',
       status: 'due_soon'
     }

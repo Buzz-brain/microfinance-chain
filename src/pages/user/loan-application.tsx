@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowLeft, DollarSign, Calendar, FileText, Shield } from 'lucide-react';
+import { ArrowLeft, Shield } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -10,11 +10,11 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Slider } from '@/components/ui/slider';
 import { Header } from '@/components/layout/header';
-import { useAuth } from '@/contexts/auth-context';
+// removed unused useAuth
 import { toast } from 'sonner';
 
 export default function LoanApplicationPage() {
-  const { user } = useAuth();
+  // no auth data required in this page currently
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     amount: [5000],

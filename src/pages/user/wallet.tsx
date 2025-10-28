@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { 
   Wallet, 
@@ -7,7 +7,6 @@ import {
   Copy, 
   ExternalLink,
   TrendingUp,
-  DollarSign,
   Plus,
   Minus
 } from 'lucide-react';
@@ -17,10 +16,10 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { useAuth } from '@/contexts/auth-context';
+// no auth usage required here
 
 export default function ManageWallet() {
-  const { user } = useAuth();
+  // user not needed in this page
   const [depositAmount, setDepositAmount] = useState('');
   const [withdrawAmount, setWithdrawAmount] = useState('');
   const [isLoading, setIsLoading] = useState(false);

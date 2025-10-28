@@ -85,7 +85,8 @@ export default function LandingPage() {
         duration: 6,
         repeat: Infinity,
         // use cubic-bezier array to satisfy framer-motion Easing type
-        ease: [0.42, 0, 0.58, 1]
+        // cast to any to satisfy TypeScript's stricter Easing typing
+        ease: [0.42, 0, 0.58, 1] as any
       }
     }
   };
@@ -257,10 +258,10 @@ export default function LandingPage() {
                 >
                   <div className="text-center space-y-6">
                       <motion.div
-                        animate={{ rotate: 360 }}
-                        transition={{ duration: 20, repeat: Infinity, ease: [0, 0, 1, 1] }}
-                        className="h-20 w-20 bg-gradient-to-br from-teal-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto"
-                      >
+                          animate={{ rotate: 360 }}
+                          transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
+                          className="h-20 w-20 bg-gradient-to-br from-teal-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto"
+                        >
                       <Wallet className="h-10 w-10 text-white" />
                     </motion.div>
                     
@@ -380,7 +381,7 @@ export default function LandingPage() {
             viewport={{ once: true }}
             className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
           >
-            {features.map((feature, index) => (
+            {features.map((feature) => (
               <motion.div
                 key={feature.title}
                 variants={staggerItem}
@@ -546,7 +547,7 @@ export default function LandingPage() {
             transition={{ 
               duration: 20,
               repeat: Infinity,
-              ease: [0, 0, 1, 1]
+              ease: 'linear'
             }}
             className="absolute top-10 left-10 w-32 h-32 bg-white/10 rounded-full"
           />
@@ -558,7 +559,7 @@ export default function LandingPage() {
             transition={{ 
               duration: 25,
               repeat: Infinity,
-              ease: [0, 0, 1, 1]
+              ease: 'linear'
             }}
             className="absolute bottom-10 right-10 w-24 h-24 bg-white/10 rounded-full"
           />

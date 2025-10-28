@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { ArrowRight, Users, FileText, CheckCircle, Wallet, Shield, Clock, DollarSign, TrendingUp, Globe, Zap } from 'lucide-react';
+import { ArrowRight, Users, FileText, CheckCircle, Shield, Clock, DollarSign, TrendingUp, Globe } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';

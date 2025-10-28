@@ -21,7 +21,7 @@ export default function SignUp() {
     agreeToTerms: false
   });
   const [isLoading, setIsLoading] = useState(false);
-  const { login } = useAuth();
+  const { register, connectWallet } = useAuth();
   const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -36,35 +36,27 @@ export default function SignUp() {
     }
 
     setIsLoading(true);
-    
-    // Simulate registration
-    setTimeout(() => {
-      login({ 
-        id: '1', 
-        email: formData.email, 
-        name: `${formData.firstName} ${formData.lastName}`,
-        type: 'user',
-        walletAddress: '0x742d35Cc6634C0532925a3b8D404d3aABB8ad9'
-      });
+
+    // Use auth provider register signature (name, email, password)
+    const created = await register(
+      `${formData.firstName} ${formData.lastName}`,
+      formData.email,
+      formData.password
+    );
+    if (created) {
       navigate('/dashboard');
-      setIsLoading(false);
-    }, 2000);
+    } else {
+      alert('Registration failed');
+    }
+
+    setIsLoading(false);
   };
 
-  const handleWalletConnect = () => {
+  const handleWalletConnect = async () => {
     setIsLoading(true);
-    // Simulate MetaMask connection and registration
-    setTimeout(() => {
-      login({ 
-        id: '2', 
-        email: 'wallet@user.com', 
-        name: 'Wallet User',
-        type: 'user',
-        walletAddress: '0x742d35Cc6634C0532925a3b8D404d3aABB8ad9'
-      });
-      navigate('/dashboard');
-      setIsLoading(false);
-    }, 2500);
+    const connected = await connectWallet();
+    if (connected) navigate('/dashboard');
+    setIsLoading(false);
   };
 
   return (

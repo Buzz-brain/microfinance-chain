@@ -19,36 +19,18 @@ export default function Login() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
-    
-    // Simulate login
-    setTimeout(() => {
-      const userType = email.includes('admin') ? 'admin' : 'user';
-      login({ 
-        id: '1', 
-        email, 
-        name: email.includes('admin') ? 'Admin User' : 'John Doe',
-        type: userType,
-        walletAddress: '0x742d35Cc6634C0532925a3b8D404d3aABB8ad9'
-      });
-      navigate(userType === 'admin' ? '/admin' : '/dashboard');
-      setIsLoading(false);
-    }, 1500);
-  };
 
-  const handleWalletConnect = () => {
-    setIsLoading(true);
-    // Simulate MetaMask connection
-    setTimeout(() => {
-      login({ 
-        id: '2', 
-        email: 'wallet@user.com', 
-        name: 'Wallet User',
-        type: 'user',
-        walletAddress: '0x742d35Cc6634C0532925a3b8D404d3aABB8ad9'
-      });
-      navigate('/dashboard');
-      setIsLoading(false);
-    }, 2000);
+    // Use auth context login signature (email, password)
+    const success = await login(email, password);
+    if (success) {
+      const userType = email.includes('admin') ? 'admin' : 'user';
+      navigate(userType === 'admin' ? '/admin' : '/dashboard');
+    } else {
+      // simple fallback
+      alert('Invalid credentials');
+    }
+
+    setIsLoading(false);
   };
 
   return (
